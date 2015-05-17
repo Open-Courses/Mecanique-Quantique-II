@@ -1,199 +1,201 @@
 \chapter{Outils mathématiques de la mécanique quantique}
+\label{chapter:math_tools}
+Page 92 - Chapitre II
 
-La mécanique quantique s'intérèsse essentiellement aux espaces de Hilbert, et
-particulièrement de $\Ldeux(\real^{n}, \complex)$. Dans la suite de ce
-cours, nous noterons $\Ldeux$ pour $\Ldeux(\real^{n}, \complex)$, et le corps de
-base sera toujours $\complex$.
-Le dual de $\mathcal{H}$, l'espace vectoriel des formes linéaires sur
-$\mathcal{H}$ à valeur dans $\mathbb{K}$, est noté $\mathcal{H}^{*}$.
+%La mécanique quantique s'intérèsse essentiellement aux espaces de Hilbert, et
+%particulièrement de $\Ldeux(\real^{n}, \complex)$. Dans la suite de ce
+%cours, nous noterons $\Ldeux$ pour $\Ldeux(\real^{n}, \complex)$, et le corps de
+%base sera toujours $\complex$.
+%Le dual de $\mathcal{H}$, l'espace vectoriel des formes linéaires sur
+%$\mathcal{H}$ à valeur dans $\mathbb{K}$, est noté $\mathcal{H}^{*}$.
 
-Le produit scalaire sur $\Ldeux$ est défini par l'intégrale: $\bra{f}\ket{g} =
-\int_{\real^{n}} f(x)^{*} g(x) \mathrm{d}x$. La norme est alors $\norm{f}^{2} =
-\int_{\real^{n}} \abs{f(x)} \mathrm{d}x$ où $\abs{.}$ est la norme usuelle sur
-$\complex$.
+%Le produit scalaire sur $\Ldeux$ est défini par l'intégrale: $\bra{f}\ket{g} =
+%\int_{\real^{n}} f(x)^{*} g(x) \mathrm{d}x$. La norme est alors $\norm{f}^{2} =
+%\int_{\real^{n}} \abs{f(x)} \mathrm{d}x$ où $\abs{.}$ est la norme usuelle sur
+%$\complex$.
 
-\section{Notation de Dirac}
+%\section{Notation de Dirac}
 
-\begin{definition} [Ket]
-	Chaque élément $\phi$ de $\Ldeux$ est appelé \textbf{'ket'}, et est noté
-	$\ket{\phi}$.
-\end{definition}
-
-Comme $\Ldeux$ est un espace de Hilbert, un produit scalaire existe dessus. Nous
-pouvons définir un élément de $\Ldeuxstar$ grace à chaque élément $\ket{\phi}$
-de $\Ldeux$: le produit scalaire associé à $\ket{\phi}$.
-
-\begin{definition} [Bra]
-	Soit un ket $\ket{\phi}$. On définit \textbf{le bra associé au ket
-	$\ket{\phi}$}, et on le note $\bra{\phi}$, par l'application $\phi^{*} :
-	\Ldeux \rightarrow \complex : \ket{\psi} \rightarrow \bra{\phi}\ket{\psi} =
-	\int_{\real^{n}} \phi(x)^{*} \psi(x) \mathrm{d}x$.
-	On remarque que $\bra{\phi} \in \Ldeuxstar$, et n'est rien d'autre que le
-	produit scalaire où la première composante est le ket $\ket{\phi}$.
-
-	La notation de Dirac est motivée par pouvoir utiliser la notation du produit
-	scalaire.
-	En effet, quand on applique un ket $\ket{\psi}$ au bra $\bra{\phi}$,
-	formellement, on écrit $\bra{\phi}(\ket{\psi}) = \bra{\phi}\ket{\psi}$.
-\end{definition}
-
-$\Ldeux$ étant un espace vectoriel, on peut réaliser des combinaisons linéaires
-de deux kets. Etant donné une combili de deux kets $\ket{\phi}$ et $\ket{\psi}$
-quel est le bra associé à $\alpha \ket{\phi} + \beta \ket{\psi}$ ?
-
-Il faut se souvenir que les propriétés du produit scalaire implique les
-propositions suivantes.
-
-\begin{enumerate}
-	\item Le bra associé à $\alpha \ket{\phi} + \beta \ket{\psi}$ est $\alpha^{*}
-	\bra{\phi} + \beta^{*} \bra{\psi}$ (anti linéarité).
-	\item $\bra{\phi}$ est linéaire.
-	\item $\bra{\phi}\ket{\psi} = \bra{\psi}\ket{\phi}^{*}$.
-	\item $\braket{\phi} = 0$ ssi $\ket{\phi} = 0$.
-	\item Si $\ket{\phi} = 0_{\Ldeux}$ alors $\bra{\phi} = 0_{\Ldeuxstar}$.
-	\item $|\ket{\phi}|^{2} = \braket{\phi} \braket{\phi}^{*}$ (la norme dérive
-		du produit scalaire car on est dans un espace de Hilbert).
-\end{enumerate}
-
-Attention, toutes éléments de $\Ldeuxstar$ n'est pas construit sur un produit
-scalaire! Donc tout ket est associé à un bra (avec le produit scalaire), mais
-tout bra n'est pas associé à un ket (toute forme linéaire n'est pas issue d'un
-produit scalaire).
-
-\section{Opérateurs sur $\Ldeux$: $\GSendomorphism{\Ldeux}$}
-
-\begin{definition} [Opérateur]
-	\textbf{Un opérateur $A$} est un élément de $\GSendomorphism{\Ldeux}$,
-c'est-à-dire une application linéaire $A : \Ldeux \rightarrow \Ldeux :
-\ket{\phi} \rightarrow A(\ket{\phi})$. En particulier, pour $\alpha, \beta \in
-\complex$, $\ket{\phi}, \ket{\psi} \in \Ldeux$, $A(\alpha \ket{\phi} + \beta
-\ket{\psi}) = \alpha A(\ket{\phi} + \beta A(\ket{\psi})$.
-\end{definition}
-
-$\Ldeux$ est une algèbre de Banach pour le produit de deux fonctions de
-$\Ldeux$.
-$\GSendomorphism{\Ldeux}$ est en particulier une algèbre de Banach avec
-l'opération produit, c'est-à-dire à deux fonctions $A, B \in
-\GSendomorphism{\Ldeux}$, on définit $AB \in \GSendomorphism{\Ldeux}$ tel
-que $AB(\ket{\phi})= A(\ket{\phi})B(\ket{\phi})$, où $A(\ket{\phi})
-B(\ket{\psi})$ est la multiplication de deux éléments de $\Ldeux$.
-Cette opération n'est pas nécéssairement commutative, et elle motive la
-définition suivante.
-
-\begin{definition} [Commutateur]
-	Soit $A, B \in \GSendomorphism{\Ldeux}$. On définit \textbf{le commutateur
-	de $A$ et $B$}, par l'application linéaire $\comm{A}{B} \in \Ldeux$ tel que
-	$\comm{A}{B} = AB - BA$ ($\forall x \in \real^{n}$, $\comm{A}{B}(x) =
-	A(x)B(x) - B(x)A(x)$).
-
-	On dit que \textbf{$A$ et $B$ commute} si $\comm{A}{B} = 0_{\Ldeux}$,
-	c'est-à-dire $AB = BA$.
-\end{definition}
-
-\begin{exemple}
-	Soit $\ket{\phi}$ non nul. On souhaite réaliser une opération qui envoie
-	chaque ket sur le sous-espace vectoriel engendré par $\ket{\phi}$. On
-	utilise pour cela \textbf{l'opérateur de projection}:
-
-	$P_{\phi} : \Ldeux \rightarrow <\phi> : \ket{\psi} \rightarrow
-	\bra{\phi}\ket{\psi} \ket{\phi}$.
-\end{exemple}
-
-%\section{Opérateurs sur les bras: $\GSendomorphism{\Ldeuxstar}$}
-
-%\begin{definition}
-	%Soit un bra $\bra{\phi}$, et un opérateur $A \in \GSendomorphism{\Ldeux}$.
-	%On définit l'opérateur $\bra{\phi} A \in \GSendomorphism{\Ldeux}$ tel que
-	%$(\bra{\phi} A) (\ket{\psi}) = \bra{\phi}(A(\ket{\psi})) =
-	%\bra{\phi}A\ket{\psi}$.
+%\begin{definition} [Ket]
+	%Chaque élément $\phi$ de $\Ldeux$ est appelé \textbf{'ket'}, et est noté
+	%$\ket{\phi}$.
 %\end{definition}
 
-%$\bra{\phi} A$ est en fait la composition de $\bra{\phi} \in \Ldeuxstar$
-%avec $A \in \GSendomorphism{\Ldeux}$.
-%L'application composée est linéaire, et donc $\bra{\phi} (\alpha A + \beta B) =
-%\alpha \bra{\phi} A + \beta \bra{\psi} B$.
+%Comme $\Ldeux$ est un espace de Hilbert, un produit scalaire existe dessus. Nous
+%pouvons définir un élément de $\Ldeuxstar$ grace à chaque élément $\ket{\phi}$
+%de $\Ldeux$: le produit scalaire associé à $\ket{\phi}$.
 
-\section{Opérateur adjoint}
+%\begin{definition} [Bra]
+	%Soit un ket $\ket{\phi}$. On définit \textbf{le bra associé au ket
+	%$\ket{\phi}$}, et on le note $\bra{\phi}$, par l'application $\phi^{*} :
+	%\Ldeux \rightarrow \complex : \ket{\psi} \rightarrow \bra{\phi}\ket{\psi} =
+	%\int_{\real^{n}} \phi(x)^{*} \psi(x) \mathrm{d}x$.
+	%On remarque que $\bra{\phi} \in \Ldeuxstar$, et n'est rien d'autre que le
+	%produit scalaire où la première composante est le ket $\ket{\phi}$.
 
-Prenons un opérateur $A \in \GSendomorphism{\Ldeux}$. On souhaite définir un
-opérateur sur $\GSendomorphism{\Ldeuxstar}$ qui a un lien direct avec $A$. Elle
-nous amène à définir l'opérateur adjoint de $A$, qu'on note $A^{\dagger}$.
+	%La notation de Dirac est motivée par pouvoir utiliser la notation du produit
+	%scalaire.
+	%En effet, quand on applique un ket $\ket{\psi}$ au bra $\bra{\phi}$,
+	%formellement, on écrit $\bra{\phi}(\ket{\psi}) = \bra{\phi}\ket{\psi}$.
+%\end{definition}
 
-\begin{definition}
-	Soit $A \in \GSendomorphism{\Ldeux}$. On définit \textbf{l'opérateur adjoint
-	de $A$} comme l'application $A^{\dagger} : \Ldeuxstar \rightarrow \Ldeuxstar :
-	\ket{\phi} \rightarrow A^{\dagger}(\bra{\phi}) = \bra{\phi} \circ A =
-	\bra{\phi} A$.
-\end{definition}
+%$\Ldeux$ étant un espace vectoriel, on peut réaliser des combinaisons linéaires
+%de deux kets. Etant donné une combili de deux kets $\ket{\phi}$ et $\ket{\psi}$
+%quel est le bra associé à $\alpha \ket{\phi} + \beta \ket{\psi}$ ?
 
-\begin{definition}
-	Soit $A \in \GSendomorphism{\Ldeux}$. On dit que \textbf{$A$ est
-	hermitique} si $A = A^{\dagger}$, c'est-à-dire quand $A$ et son adjoint
-	coïncident.
-\end{definition}
+%Il faut se souvenir que les propriétés du produit scalaire implique les
+%propositions suivantes.
 
-\section{Représentation}
+%\begin{enumerate}
+	%\item Le bra associé à $\alpha \ket{\phi} + \beta \ket{\psi}$ est $\alpha^{*}
+	%\bra{\phi} + \beta^{*} \bra{\psi}$ (anti linéarité).
+	%\item $\bra{\phi}$ est linéaire.
+	%\item $\bra{\phi}\ket{\psi} = \bra{\psi}\ket{\phi}^{*}$.
+	%\item $\braket{\phi} = 0$ ssi $\ket{\phi} = 0$.
+	%\item Si $\ket{\phi} = 0_{\Ldeux}$ alors $\bra{\phi} = 0_{\Ldeuxstar}$.
+	%\item $|\ket{\phi}|^{2} = \braket{\phi} \braket{\phi}^{*}$ (la norme dérive
+		%du produit scalaire car on est dans un espace de Hilbert).
+%\end{enumerate}
 
-\begin{definition}
-	On appelle \textbf{représentation} une base de l'espace vectoriel étudié.
-\end{definition}
+%Attention, toutes éléments de $\Ldeuxstar$ n'est pas construit sur un produit
+%scalaire! Donc tout ket est associé à un bra (avec le produit scalaire), mais
+%tout bra n'est pas associé à un ket (toute forme linéaire n'est pas issue d'un
+%produit scalaire).
 
-Dans notre cas, on parlera \textbf{d'espace des états}, et \textbf{de
-représentation de l'espace des états}.
+%\section{Opérateurs sur $\Ldeux$: $\GSendomorphism{\Ldeux}$}
 
-\section{Equations aux valeurs propres, observables}
+%\begin{definition} [Opérateur]
+	%\textbf{Un opérateur $A$} est un élément de $\GSendomorphism{\Ldeux}$,
+%c'est-à-dire une application linéaire $A : \Ldeux \rightarrow \Ldeux :
+%\ket{\phi} \rightarrow A(\ket{\phi})$. En particulier, pour $\alpha, \beta \in
+%\complex$, $\ket{\phi}, \ket{\psi} \in \Ldeux$, $A(\alpha \ket{\phi} + \beta
+%\ket{\psi}) = \alpha A(\ket{\phi} + \beta A(\ket{\psi})$.
+%\end{definition}
 
-La mécanique quantique est très reliée à la théorie spectrale, c'est-à-dire
-l'étude des valeurs propres et des vecteurs propres d'un opérateur (d'un
-endomorphisme).
+%$\Ldeux$ est une algèbre de Banach pour le produit de deux fonctions de
+%$\Ldeux$.
+%$\GSendomorphism{\Ldeux}$ est en particulier une algèbre de Banach avec
+%l'opération produit, c'est-à-dire à deux fonctions $A, B \in
+%\GSendomorphism{\Ldeux}$, on définit $AB \in \GSendomorphism{\Ldeux}$ tel
+%que $AB(\ket{\phi})= A(\ket{\phi})B(\ket{\phi})$, où $A(\ket{\phi})
+%B(\ket{\psi})$ est la multiplication de deux éléments de $\Ldeux$.
+%Cette opération n'est pas nécéssairement commutative, et elle motive la
+%définition suivante.
 
-Rappelons d'abord quelques notions de théorie spectrale. Nous n'étudierons qu'un
-particulier de la théorie spectrale. En effet, son domaine d'application est les
-algèbres. Dans notre cas, nous étudierons les espaces d'endormorphismes qui sont
-un cas particulier d'algèbre. Les notations seront plus aisées.
+%\begin{definition} [Commutateur]
+	%Soit $A, B \in \GSendomorphism{\Ldeux}$. On définit \textbf{le commutateur
+	%de $A$ et $B$}, par l'application linéaire $\comm{A}{B} \in \Ldeux$ tel que
+	%$\comm{A}{B} = AB - BA$ ($\forall x \in \real^{n}$, $\comm{A}{B}(x) =
+	%A(x)B(x) - B(x)A(x)$).
 
-\begin{definition} [Valeur propre]
-	Soit $A \in \GSendomorphism{\Ldeux}$, et $\lambda \in \complex$. On dit que
-	\textbf{$\lambda$ est valeur propre de $A$} s'il existe $\ket{\phi} \in
-	\Ldeux$ tel que $A \ket{\phi} = \lambda \ket{\phi}$.
+	%On dit que \textbf{$A$ et $B$ commute} si $\comm{A}{B} = 0_{\Ldeux}$,
+	%c'est-à-dire $AB = BA$.
+%\end{definition}
 
-	De manière équivalente, $\lambda$ est valeur propre si $\ker(A - \lambda
-	Id_{\GSendomorphism{\Ldeux}}) \neq \emptyset$, c'est-à-dire que $A - \lambda
-	Id_{\GSendomorphism{\Ldeux}}$ n'est pas injective.
-\end{definition}
+%\begin{exemple}
+	%Soit $\ket{\phi}$ non nul. On souhaite réaliser une opération qui envoie
+	%chaque ket sur le sous-espace vectoriel engendré par $\ket{\phi}$. On
+	%utilise pour cela \textbf{l'opérateur de projection}:
 
-\begin{definition} [Spectre d'un opérateur]
-	Soit $A \in \GSendomorphism{\Ldeux}$. \textbf{Le spectre de $A$} est
-	l'ensemble de ses valeurs propres.
-\end{definition}
+	%$P_{\phi} : \Ldeux \rightarrow <\phi> : \ket{\psi} \rightarrow
+	%\bra{\phi}\ket{\psi} \ket{\phi}$.
+%\end{exemple}
 
-\begin{definition} [Vecteur propre]
-	Soit $A \in \GSendomorphism{\Ldeux}$, et $\ket{\phi} \in \Ldeux$ non nul. On
-	dit que \textbf{$\ket{\phi}$ est vecteur propre pour la valeur propre
-	$\lambda$} s'il existe une valeur propre $\lambda \in \complex$ tel que $A
-	\ket{\phi} = \lambda \ket{\phi}$.
+%%\section{Opérateurs sur les bras: $\GSendomorphism{\Ldeuxstar}$}
 
-	De manière équivalente, on a $\ket{\phi} \in \ker(A - \lambda
-	Id_{\GSendomorphism{\Ldeux}})$. Le noyau est donc au moins de dimension $1$.
-\end{definition}
+%%\begin{definition}
+	%%Soit un bra $\bra{\phi}$, et un opérateur $A \in \GSendomorphism{\Ldeux}$.
+	%%On définit l'opérateur $\bra{\phi} A \in \GSendomorphism{\Ldeux}$ tel que
+	%%$(\bra{\phi} A) (\ket{\psi}) = \bra{\phi}(A(\ket{\psi})) =
+	%%\bra{\phi}A\ket{\psi}$.
+%%\end{definition}
 
-Le noyau de $A - \lambda Id_{\GSendomorphism{\Ldeux}}$ n'est pas nécéssairement
-de dimension $1$, c'est-à-dire qu'il n'y a pas qu'un seul vecteur propre qui
-engendre l'espace. On aura besoin dans la suite de faire la différence entre ces
-deux cas, ce qui motive la définition suivante.
+%%$\bra{\phi} A$ est en fait la composition de $\bra{\phi} \in \Ldeuxstar$
+%%avec $A \in \GSendomorphism{\Ldeux}$.
+%%L'application composée est linéaire, et donc $\bra{\phi} (\alpha A + \beta B) =
+%%\alpha \bra{\phi} A + \beta \bra{\psi} B$.
 
-\begin{definition} [Dégénérescence]
-	Une valeur propre $\lambda$ pour $A$ est dite \textbf{dégénérée} si $\ker(A
-	- \lambda Id_{\GSendomorphism{\Ldeuxstar}})$ est au moins de dimension
-	$2$.
+%\section{Opérateur adjoint}
 
-	Sinon, si $\ker(A - \lambda Id_{\GSendomorphism{\Ldeuxstar}})$ est de
-	dimension $1$, c'est-à-dire générée par un seul vecteur propre, on dit que
-	$\lambda$ est \textbf{non-dégénérée}.
-\end{definition}
+%Prenons un opérateur $A \in \GSendomorphism{\Ldeux}$. On souhaite définir un
+%opérateur sur $\GSendomorphism{\Ldeuxstar}$ qui a un lien direct avec $A$. Elle
+%nous amène à définir l'opérateur adjoint de $A$, qu'on note $A^{\dagger}$.
 
-\begin{definition} [Sous espace propre]
-	\textbf{Le sous espace propre de $\lambda$ par rapport à $A$} est le noyau
-	de $A - Id_{\GSendomorphism{\Ldeuxstar}}$.
-	Sa dimension est notée $g$.
-\end{definition}
+%\begin{definition}
+	%Soit $A \in \GSendomorphism{\Ldeux}$. On définit \textbf{l'opérateur adjoint
+	%de $A$} comme l'application $A^{\dagger} : \Ldeuxstar \rightarrow \Ldeuxstar :
+	%\ket{\phi} \rightarrow A^{\dagger}(\bra{\phi}) = \bra{\phi} \circ A =
+	%\bra{\phi} A$.
+%\end{definition}
+
+%\begin{definition}
+	%Soit $A \in \GSendomorphism{\Ldeux}$. On dit que \textbf{$A$ est
+	%hermitique} si $A = A^{\dagger}$, c'est-à-dire quand $A$ et son adjoint
+	%coïncident.
+%\end{definition}
+
+%\section{Représentation}
+
+%\begin{definition}
+	%On appelle \textbf{représentation} une base de l'espace vectoriel étudié.
+%\end{definition}
+
+%Dans notre cas, on parlera \textbf{d'espace des états}, et \textbf{de
+%représentation de l'espace des états}.
+
+%\section{Equations aux valeurs propres, observables}
+
+%La mécanique quantique est très reliée à la théorie spectrale, c'est-à-dire
+%l'étude des valeurs propres et des vecteurs propres d'un opérateur (d'un
+%endomorphisme).
+
+%Rappelons d'abord quelques notions de théorie spectrale. Nous n'étudierons qu'un
+%particulier de la théorie spectrale. En effet, son domaine d'application est les
+%algèbres. Dans notre cas, nous étudierons les espaces d'endormorphismes qui sont
+%un cas particulier d'algèbre. Les notations seront plus aisées.
+
+%\begin{definition} [Valeur propre]
+	%Soit $A \in \GSendomorphism{\Ldeux}$, et $\lambda \in \complex$. On dit que
+	%\textbf{$\lambda$ est valeur propre de $A$} s'il existe $\ket{\phi} \in
+	%\Ldeux$ tel que $A \ket{\phi} = \lambda \ket{\phi}$.
+
+	%De manière équivalente, $\lambda$ est valeur propre si $\ker(A - \lambda
+	%Id_{\GSendomorphism{\Ldeux}}) \neq \emptyset$, c'est-à-dire que $A - \lambda
+	%Id_{\GSendomorphism{\Ldeux}}$ n'est pas injective.
+%\end{definition}
+
+%\begin{definition} [Spectre d'un opérateur]
+	%Soit $A \in \GSendomorphism{\Ldeux}$. \textbf{Le spectre de $A$} est
+	%l'ensemble de ses valeurs propres.
+%\end{definition}
+
+%\begin{definition} [Vecteur propre]
+	%Soit $A \in \GSendomorphism{\Ldeux}$, et $\ket{\phi} \in \Ldeux$ non nul. On
+	%dit que \textbf{$\ket{\phi}$ est vecteur propre pour la valeur propre
+	%$\lambda$} s'il existe une valeur propre $\lambda \in \complex$ tel que $A
+	%\ket{\phi} = \lambda \ket{\phi}$.
+
+	%De manière équivalente, on a $\ket{\phi} \in \ker(A - \lambda
+	%Id_{\GSendomorphism{\Ldeux}})$. Le noyau est donc au moins de dimension $1$.
+%\end{definition}
+
+%Le noyau de $A - \lambda Id_{\GSendomorphism{\Ldeux}}$ n'est pas nécéssairement
+%de dimension $1$, c'est-à-dire qu'il n'y a pas qu'un seul vecteur propre qui
+%engendre l'espace. On aura besoin dans la suite de faire la différence entre ces
+%deux cas, ce qui motive la définition suivante.
+
+%\begin{definition} [Dégénérescence]
+	%Une valeur propre $\lambda$ pour $A$ est dite \textbf{dégénérée} si $\ker(A
+	%- \lambda Id_{\GSendomorphism{\Ldeuxstar}})$ est au moins de dimension
+	%$2$.
+
+	%Sinon, si $\ker(A - \lambda Id_{\GSendomorphism{\Ldeuxstar}})$ est de
+	%dimension $1$, c'est-à-dire générée par un seul vecteur propre, on dit que
+	%$\lambda$ est \textbf{non-dégénérée}.
+%\end{definition}
+
+%\begin{definition} [Sous espace propre]
+	%\textbf{Le sous espace propre de $\lambda$ par rapport à $A$} est le noyau
+	%de $A - Id_{\GSendomorphism{\Ldeuxstar}}$.
+	%Sa dimension est notée $g$.
+%\end{definition}
